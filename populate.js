@@ -41,6 +41,8 @@ module.exports.updateHTML = (username, opts) => {
       (async () => {
         try {
           console.log("Building HTML/CSS...");
+          //let repoSource = await fs.readFileSync("repos.json");
+          //const repos = JSON.parse(repoSource.toString("utf-8"));
           const repos = await getRepos(username, opts);
 
           for (var i = 0; i < repos.length; i++) {
@@ -82,12 +84,39 @@ module.exports.updateHTML = (username, opts) => {
                         </section>
                         </a>`;
           }
+          
+          console.log("Building Blog...");
+          let blogSource = await fs.readFileSync("blog.json");
+          const blogs = JSON.parse(blogSource.toString("utf-8"));
+          
+          for (var i = 0; i < blogs.length; i++) {
+            let element = document.getElementById("blogs");
+            
+            element.innerHTML += `
+            <a href="${blogs[i].url_title}" target="_blank">
+                <section>
+                    <div class="blog_container">
+                        <div class="section_title">${blogs[i].title}</div>
+                            <div class="bottom_section">
+                                <span style="display:inline-block"><i class="fas fa-calendar"></i>&nbsp; ${blogs[i].date}</span>
+                                <span style="display:inline-block"><i class="fas fa-tag"></i>&nbsp; ${blogs[i].tag}</span>
+                            </div>
+                            <div class="about_section">
+                            ${blogs[i].sub_title}
+                    </div>
+                    </div>
+                </section>
+            </a>
+            `;
+          }
+          
+          //let userSource = await fs.readFileSync("user.json");
+          //const user = JSON.parse(userSource.toString("utf-8"));
           const user = await getUser(username);
-          document.title = user.login;
+          document.title = `${user.name} - ${user.bio}`;
           var icon = document.createElement("link");
           icon.setAttribute("rel", "icon");
-          icon.setAttribute("href", user.avatar_url);
-          icon.setAttribute("type", "image/png");
+          icon.setAttribute("href", "favicon.ico");
 
           document.getElementsByTagName("head")[0].appendChild(icon);
           document.getElementById(
@@ -107,15 +136,14 @@ module.exports.updateHTML = (username, opts) => {
           document.getElementById("about").innerHTML = `
                 <span style="display:${
                   user.company == null || !user.company ? "none" : "block"
-                };"><i class="fas fa-users"></i> &nbsp; ${user.company}</span>
+                };"><i class="fas fa-briefcase"></i> &nbsp; <a target="_blank" href="http://www.imoney-group.com/">${user.company}</a></span>
                 <span style="display:${
                   user.email == null || !user.email ? "none" : "block"
                 };"><i class="fas fa-envelope"></i> &nbsp; ${user.email}</span>
                 <span style="display:${
                   user.blog == null || !user.blog ? "none" : "block"
-                };"><i class="fas fa-link"></i> &nbsp; <a href="${user.blog}">${
-            user.blog
-          }</a></span>
+                };"><i class="fas fa-rss-square"></i> &nbsp; <a target="_blank"href="${user.blog}">Blog</a></span>
+                <span style="display:block"><i class="fab fa-linkedin-in"></i> &nbsp; <a target="_blank" href="https://www.linkedin.com/in/mdminhazulhaque/">LinkedIn</a></span>
                 <span style="display:${
                   user.location == null || !user.location ? "none" : "block"
                 };"><i class="fas fa-map-marker-alt"></i> &nbsp;&nbsp; ${
