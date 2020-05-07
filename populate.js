@@ -5,7 +5,7 @@ const jsdom = require("jsdom").JSDOM,
     resources: "usable"
   };
 const { getConfig, outDir } = require("./utils");
-const { getRepos, getUser } = require("./api");
+// const { getRepos, getUser } = require("./api");
 
 function convertToEmoji(text) {
   if (text == null) return;
