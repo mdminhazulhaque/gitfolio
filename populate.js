@@ -5,7 +5,7 @@ const jsdom = require("jsdom").JSDOM,
     resources: "usable"
   };
 const { getConfig, outDir } = require("./utils");
-// const { getRepos, getUser } = require("./api");
+const { getRepos, getUser } = require("./api");
 
 function convertToEmoji(text) {
   if (text == null) return;
@@ -86,7 +86,7 @@ module.exports.updateHTML = (username, opts) => {
           }
           
           console.log("Building Blog...");
-          let blogSource = await fs.readFileSync("blog.json");
+          let blogSource = await fs.readFileSync("data/blog.json");
           const blogs = JSON.parse(blogSource.toString("utf-8"));
           
           for (var i = 0; i < blogs.length; i++) {

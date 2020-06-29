@@ -14,7 +14,7 @@ entries = soup.find_all("entry")
 data = []
 
 for entry in entries[:4]:
-    link = entry.link['href'].replace("http://localhost:4000/", "https://bits.mdminhazulhaque.io/")
+    link = entry.link['href']
     
     blog = {
         "url_title": link,
@@ -27,5 +27,5 @@ for entry in entries[:4]:
     
     data.append(blog)
 
-with open("blog.json", "w") as fp:
+with open("data/blog.json", "w") as fp:
     json.dump(data, fp, indent=4)

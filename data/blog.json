@@ -1,0 +1,34 @@
+[
+    {
+        "title": "AWS CLI Cheatsheet", 
+        "sub_title": "I heavily rely on CLI tools rather than GUI/Web interface. AWS CLI is a great tool to manage AWS resources across different accounts, regions and environments.", 
+        "visible": true, 
+        "tag": "aws", 
+        "date": "28 Mar 2020", 
+        "url_title": "https://bits.mdminhazulhaque.io/aws/aws-cli-cheatsheet.html"
+    }, 
+    {
+        "title": "Create Breadcrumb in Jekyll", 
+        "sub_title": "Breadcrumb is a technique to show the level of your page so the user can browse any level directly, even from the Google search page. Also, the breadcrumb snippet must be put in the head tag of the HTML if you want to use the JSON-LD format.", 
+        "visible": true, 
+        "tag": "jekyll", 
+        "date": "14 Sep 2019", 
+        "url_title": "https://bits.mdminhazulhaque.io/jekyll/create-breadcrumb-in-jekyll.html"
+    }, 
+    {
+        "title": "Tweak your Bee IPTV Box with 3rd Party App and Launcher", 
+        "sub_title": "Yesterday, I got a call from one of my colleagues (and also my neighbor) about how he messed up with his Android TV Box. He asked me if I could help him with that to make it great useful again.", 
+        "visible": true, 
+        "tag": "android", 
+        "date": "30 May 2019", 
+        "url_title": "https://bits.mdminhazulhaque.io/android/tweak-your-bee-iptv-box-with-3rd-party-app-and-launcher.html"
+    }, 
+    {
+        "title": "Authenticate Fluentd to Access BigQuery", 
+        "sub_title": "Fluentd is a pretty good log collection and streaming solution for several platforms. You can easily stream your nginx logs to BigQuery via Fluentd.", 
+        "visible": true, 
+        "tag": "linux", 
+        "date": "08 May 2019", 
+        "url_title": "https://bits.mdminhazulhaque.io/linux/authenticate-fluentd-to-access-bigquery.html"
+    }
+]
